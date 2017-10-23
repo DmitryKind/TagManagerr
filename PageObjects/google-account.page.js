@@ -7,6 +7,7 @@ function AccountGoogle() {
         nextButton = element(by.id('identifierNext')),
         accountPassword = element(by.name('password')),
         signButton = element(by.id('passwordNext'));
+    
     /**На странице аккаунта не подключён Angular, поэтому здесь добавлены явные ожидания.**/
     that.login = function (email,password) {
         googleAccountName.sendKeys(email);
