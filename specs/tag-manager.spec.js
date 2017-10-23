@@ -1,15 +1,15 @@
 var TagManager = require('../PageObjects/tag-manager.page');
-var accountGoogle = require('../PageObjects/google-account.page');
+var AccountGoogle = require('../PageObjects/google-account.page');
 var data = require('../data/data.json');
 
 describe('Interaction with tagmanager.google.com', function () {
     var tagManager = new TagManager();
-    var googleAcc = new accountGoogle();
+    var accountGoogle = new AccountGoogle();
 
     beforeAll(function () {
         browser.waitForAngularEnabled(false);
         browser.get('https://tagmanager.google.com/#/admin/accounts/create');
-        googleAcc.login(data.email, data.password);
+        accountGoogle.login(data.email, data.password);
         browser.waitForAngularEnabled(true);
     });
 

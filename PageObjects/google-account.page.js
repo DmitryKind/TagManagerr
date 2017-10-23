@@ -1,13 +1,13 @@
-module.exports = accountGoogle;
+module.exports = AccountGoogle;
 var data = require('../data/data.json');
 
-function accountGoogle() {
+function AccountGoogle() {
     var that = this;
     var googleAccountName = element(by.id('identifierId')),
         nextButton = element(by.id('identifierNext')),
         accountPassword = element(by.name('password')),
         signButton = element(by.id('passwordNext'));
-    /**Страница аккаунта не является Angular страницей, поэтому сдесь добавлены неявные ожидания.**/
+    /**На странице аккаунта не подключён Angular, поэтому здесь добавлены явные ожидания.**/
     that.login = function (email,password) {
         googleAccountName.sendKeys(email);
         nextButton.click();
