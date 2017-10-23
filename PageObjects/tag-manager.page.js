@@ -1,24 +1,22 @@
-module.exports = TagManagerTest;
-function TagManagerTest() {
+module.exports = TagManager;
 
+function TagManager() {
     var that = this;
-    var accountName = $("[name='form.account.data.name']"),
-        checkBox = $("[id='2-form.account.data.shareData']"),
+    var accountField = $("[name='form.account.data.name']"),
+        checkBox = $("[name='form.account.data.shareData']"),
         nextButton = element(by.buttonText('Далее')),
-        containerName = $("[id='1-form.container.data.name']"),
+        containerField = $("[name='form.container.data.name']"),
         cancelButton = element(by.buttonText('Отмена')),
-        createButton = element(by.cssContainingText('.btn-action', 'Создать')),
-        containerField = $("[name='form.container.data.name']");
+        createButton = element(by.cssContainingText('.btn-action', 'Создать'));
 
-    that.accountField = accountName;
-    that.checkBoxSelected = checkBox;
-    that.buttonNext = nextButton;
-    that.containerField = containerName;
-    that.buttonCancel = cancelButton;
-    that.containerVisable = containerField;
+    that.accountField = accountField;
+    that.checkBox = checkBox;
+    that.nextButton = nextButton;
+    that.containerField = containerField;
+    that.cancelButton = cancelButton;
 
     that.isAccountFieldEmpty = function () {
-        return accountName.getAttribute('class')
+        return accountField.getAttribute('class')
             .then(function (classes) {
                 return classes.indexOf('ng-empty') !== -1;
             });
@@ -36,4 +34,4 @@ function TagManagerTest() {
             return createButton.isEnabled();
         })
     };
-};
+}

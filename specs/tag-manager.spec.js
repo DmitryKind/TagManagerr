@@ -1,15 +1,15 @@
-var TagManagerTest = require('../PageObjects/tag-manager.page');
-var GoogleAccount = require('../PageObjects/google-account.page');
+var TagManager = require('../PageObjects/tag-manager.page');
+var accountGoogle = require('../PageObjects/google-account.page');
 var data = require('../data/data.json');
 
 describe('Interaction with tagmanager.google.com', function () {
-    var tagManager = new TagManagerTest();
-    var googleAcc = new GoogleAccount();
+    var tagManager = new TagManager();
+    var googleAcc = new accountGoogle();
 
     beforeAll(function () {
         browser.waitForAngularEnabled(false);
         browser.get('https://tagmanager.google.com/#/admin/accounts/create');
-        googleAcc.login(data.GoogleAcc, data.password);
+        googleAcc.login(data.email, data.password);
         browser.waitForAngularEnabled(true);
     });
 
@@ -27,10 +27,10 @@ describe('Interaction with tagmanager.google.com', function () {
     });
 
     it('Click on checkbox, click next button.Container field is available and visible', function () {
-        tagManager.checkBoxSelected.click();
-        since('CheckBox is not selected').expect(tagManager.checkBoxSelected.isSelected()).toBe(false);
-        tagManager.buttonNext.click();
-        since('Container field is not prersent').expect(tagManager.containerField.isPresent()).toBe(true);
+        tagManager.checkBox.click();
+        since('CheckBox is not selected').expect(tagManager.checkBox.isSelected()).toBe(false);
+        tagManager.nextButton.click();
+        since('Container field is not present').expect(tagManager.containerField.isPresent()).toBe(true);
         since('Container field is not visible ').expect(tagManager.containerField.isDisplayed()).toBe(true);
         since('Container field is not available').expect(tagManager.containerField.isEnabled()).toBe(true);
         since('Create button is available').expect(tagManager.isCreateBtnAvailable()).toBe(false);
@@ -43,9 +43,9 @@ describe('Interaction with tagmanager.google.com', function () {
     });
 
     it('Click cancel button. Name of container is clear. Container field is not visible', function () {
-        tagManager.buttonCancel.click();
+        tagManager.cancelButton.click();
         since('Account field is not available').expect(tagManager.isAccountFieldEmpty()).toBe(true);
-        since('Container field visible').expect(tagManager.containerVisable.isDisplayed()).toBe(false);
+        since('Container field visible').expect(tagManager.containerField.isDisplayed()).toBe(false);
         since('Create button is available').expect(tagManager.isCreateBtnAvailable()).toBe(false);
     });
 
