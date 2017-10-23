@@ -10,7 +10,7 @@ function TagManager() {
         createButton = element(by.cssContainingText('.btn-action', 'Создать'));
 
     that.accountField = accountField;
-    that.checkBox = checkBox;
+    that.sendDataCheckbox = checkBox;
     that.nextButton = nextButton;
     that.containerField = containerField;
     that.cancelButton = cancelButton;

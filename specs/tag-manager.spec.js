@@ -27,8 +27,8 @@ describe('Interaction with tagmanager.google.com', function () {
     });
 
     it('Click on checkbox, click next button.Container field is available and visible', function () {
-        tagManager.checkBox.click();
-        since('CheckBox is not selected').expect(tagManager.checkBox.isSelected()).toBe(false);
+        tagManager.sendDataCheckbox.click();
+        since('CheckBox is not selected').expect(tagManager.sendDataCheckbox.isSelected()).toBe(false);
         tagManager.nextButton.click();
         since('Container field is not present').expect(tagManager.containerField.isPresent()).toBe(true);
         since('Container field is not visible ').expect(tagManager.containerField.isDisplayed()).toBe(true);
