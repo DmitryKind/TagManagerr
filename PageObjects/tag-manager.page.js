@@ -3,14 +3,14 @@ module.exports = TagManager;
 function TagManager() {
     var that = this;
     var accountField = $("[name='form.account.data.name']"),
-        checkBox = $("[name='form.account.data.shareData']"),
+        sendDataCheckbox = $("[name='form.account.data.shareData']"),
         nextButton = element(by.buttonText('Далее')),
         containerField = $("[name='form.container.data.name']"),
         cancelButton = element(by.buttonText('Отмена')),
         createButton = element(by.cssContainingText('.btn-action', 'Создать'));
 
     that.accountField = accountField;
-    that.sendDataCheckbox = checkBox;
+    that.sendDataCheckbox = sendDataCheckbox;
     that.nextButton = nextButton;
     that.containerField = containerField;
     that.cancelButton = cancelButton;
